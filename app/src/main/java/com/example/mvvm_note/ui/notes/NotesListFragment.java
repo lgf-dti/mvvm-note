@@ -39,7 +39,7 @@ public class NotesListFragment extends Fragment {
         rv.setAdapter(adapter);
 
         // Use Hilt to get ViewModel - no factory needed
-        vm = new ViewModelProvider(this).get(NotesViewModel.class);
+        vm = new ViewModelProvider(requireActivity()).get(NotesViewModel.class);
 
         vm.getNotes().observe(getViewLifecycleOwner(), adapter::submitList);
 
