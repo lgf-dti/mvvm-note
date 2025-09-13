@@ -10,8 +10,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+@Singleton
 public class NotesRepository {
     private final MutableLiveData<List<Note>> notes = new MutableLiveData<>(new ArrayList<>());
+
+    @Inject
+    public NotesRepository() {
+        // Constructor for Hilt injection
+        // Load initial data automatically
+        load();
+    }
 
     public LiveData<List<Note>> observeNotes() {
         return notes;
