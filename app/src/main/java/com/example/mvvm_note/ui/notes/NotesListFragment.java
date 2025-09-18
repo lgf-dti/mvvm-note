@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvvm_note.R;
-import com.example.mvvm_note.ui.main.MainActivity;
 import com.example.mvvm_note.viewmodel.NotesViewModel;
-import com.example.mvvm_note.viewmodel.NotesViewModelFactory;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class NotesListFragment extends Fragment {
 
     private NotesViewModel vm;
@@ -38,14 +38,10 @@ public class NotesListFragment extends Fragment {
         adapter = new NotesAdapter();
         rv.setAdapter(adapter);
 
-
-        NotesViewModelFactory factory = ((MainActivity) requireActivity()).getNotesFactory();
-
-
-        vm = new ViewModelProvider(requireActivity(), factory).get(NotesViewModel.class);
+        // Use Hilt to get ViewModel - no factory needed
+        vm = new ViewModelProvider(requireActivity()).get(NotesViewModel.class);
 
         vm.getNotes().observe(getViewLifecycleOwner(), adapter::submitList);
-
 
         v.findViewById(R.id.btnAdd).setOnClickListener(btn ->
                 NavHostFragment.findNavController(this)
