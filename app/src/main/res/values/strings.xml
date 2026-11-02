@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Mes notes</string>
+
+    <!-- Titres des écrans (affichés en haut de chaque fragment et utilisés comme labels du graphe) -->
+    <string name="title_notes_list">Mes notes</string>
+    <string name="title_note_create">Nouvelle note</string>
+
+    <!-- Écran liste -->
+    <string name="notes_empty">Aucune note pour l\'instant.\nAppuyez sur « Créer une note » pour commencer.</string>
+    <string name="action_add_note">Créer une note</string>
+
+    <!-- Écran création -->
+    <string name="hint_title">Titre</string>
+    <string name="hint_content">Contenu</string>
+    <string name="action_save">Enregistrer</string>
+    <string name="error_title_required">Le titre est obligatoire</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Activité unique : uniquement le conteneur dans lequel la Navigation affiche les fragments.
+    fitsSystemWindows : la racine se décale automatiquement des barres système (affichage bord à bord).
+    L'attribut est sur le FrameLayout parent car FragmentContainerView ne l'applique pas lui-même.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
+
+</FrameLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Graphe de navigation : les destinations (fragments) et les actions (transitions) entre elles.
+    Les labels documentent chaque destination (ils serviraient de titre si une Toolbar était branchée).
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/notesListFragment">
+
+    <fragment
+        android:id="@+id/notesListFragment"
+        android:name="com.example.mvvm_note.ui.fragment.NotesListFragment"
+        android:label="@string/title_notes_list">
+        <action
+            android:id="@+id/action_notesList_to_noteCreate"
+            app:destination="@id/noteCreateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/noteCreateFragment"
+        android:name="com.example.mvvm_note.ui.fragment.NoteCreateFragment"
+        android:label="@string/title_note_create" />
+
+</navigation>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Écran liste : la RecyclerView occupe tout l'espace disponible (layout_weight) au-dessus du
+    bouton de création. Quand la liste est vide, le Fragment masque la RecyclerView et affiche
+    le message text_empty à sa place (même layout_weight, donc même espace).
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_screen_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:text="@string/title_notes_list"
+        android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_notes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingVertical="4dp"
+        tools:listitem="@layout/item_note" />
+
+    <TextView
+        android:id="@+id/text_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/notes_empty"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:visibility="gone" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/action_add_note" />
+
+</LinearLayout>
